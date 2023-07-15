@@ -1,0 +1,30 @@
+<settings>
+    <setting propertyKey="@Properties.Setting_Background" title="@Strings.Setting_Background">
+        <settingConfig type="list">
+            <listEntry value="0xffffff">@Strings.Color_White</listEntry>
+            <listEntry value="0xaaaaaa">@Strings.Color_Gray</listEntry>
+            <listEntry value="0x000000">@Strings.Color_Black</listEntry>
+            <listEntry value="0xff0000">@Strings.Color_Red</listEntry>
+            <listEntry value="0xffaa00">@Strings.Color_Orange</listEntry>
+            <listEntry value="0xffff00">@Strings.Color_Yellow</listEntry>
+            <listEntry value="0x00aa00">@Strings.Color_Green</listEntry>
+            <listEntry value="0x0055ff">@Strings.Color_Blue</listEntry>
+            <listEntry value="0xaa00ff">@Strings.Color_Purple</listEntry>
+            <listEntry value="0xff55ff">@Strings.Color_Pink</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.Setting_Foreground" title="@Strings.Setting_Foreground">
+        <settingConfig type="list">
+            <listEntry value="0xffffff">@Strings.Color_White</listEntry>
+            <listEntry value="0xaaaaaa">@Strings.Color_Gray</listEntry>
+            <listEntry value="0x000000">@Strings.Color_Black</listEntry>
+            <listEntry value="0xff0000">@Strings.Color_Red</listEntry>
+            <listEntry value="0xffaa00">@Strings.Color_Orange</listEntry>
+            <listEntry value="0xffff00">@Strings.Color_Yellow</listEntry>
+            <listEntry value="0x00aa00">@Strings.Color_Green</listEntry>
+            <listEntry value="0x0055ff">@Strings.Color_Blue</listEntry>
+            <listEntry value="0xaa00ff">@Strings.Color_Purple</listEntry>
+            <listEntry value="0xff55ff">@Strings.Color_Pink</listEntry>
+        </settingConfig>
+    </setting>
+</settings>

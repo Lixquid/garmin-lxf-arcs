@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="40"
+   height="40"
+   viewBox="0 0 40 40"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <circle
+     style="fill:none;stroke:#0055ff;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="path4546"
+     cx="20"
+     cy="20"
+     r="15" />
+  <path
+     id="rect4568"
+     style="stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;fill:#0055ff;fill-opacity:1"
+     d="m 35,17 h 2 c 1,2 1,4 0,6 h -2 z" />
+  <path
+     style="fill:#0055ff;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;fill-opacity:1"
+     d="M 8,10 10,0 h 3 v 6 z"
+     id="path4578" />
+  <path
+     style="fill:#0055ff;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;fill-opacity:1"
+     d="m 27,0 h 3 l 2,10 -5,-4 z"
+     id="path4685" />
+  <path
+     style="fill:#0055ff;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;fill-opacity:1"
+     d="M 13,40 V 34 L 8,30 10,40 Z"
+     id="path4687" />
+  <path
+     style="fill:#0055ff;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;fill-opacity:1"
+     d="m 27,40 v -6 l 5,-4 -2,10 z"
+     id="path4689" />
+  <rect
+     style="fill:#0055ff;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;fill-opacity:1"
+     id="rect4741"
+     width="12"
+     height="3"
+     x="14"
+     y="0" />
+  <rect
+     style="fill:#0055ff;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;fill-opacity:1"
+     id="rect4743"
+     width="12"
+     height="3"
+     x="14"
+     y="37" />
+  <path
+     style="fill:none;stroke:#0055ff;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
+     id="path414"
+     d="m 20,15.5 a 4.5,4.5 0 0 1 4.346666,3.335314 4.5,4.5 0 0 1 -2.096666,5.0618" />
+  <path
+     style="fill:none;stroke:#0055ff;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
+     id="path468"
+     d="m 20,12 a 8,8 0 0 1 7.345729,4.831362 8,8 0 0 1 -1.52674,8.658571 8,8 0 0 1 -8.55515,2.027608" />
+  <path
+     style="fill:none;stroke:#0055ff;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
+     id="path470"
+     d="m 20,9.5 a 10.5,10.5 0 0 1 10.429003,9.281025 10.5,10.5 0 0 1 -8.007536,11.435946 10.5,10.5 0 0 1 -12.28824,-6.625759" />
+</svg>

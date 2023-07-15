@@ -1,0 +1,18 @@
+<strings>
+    <string id="AppName">LxF Arcs</string>
+    <string id="AppVersion">0.1.0</string>
+
+    <string id="Setting_Background">Background Color</string>
+    <string id="Setting_Foreground">Foreground Color</string>
+
+    <string id="Color_White">White</string>
+    <string id="Color_Gray">Gray</string>
+    <string id="Color_Black">Black</string>
+    <string id="Color_Red">Red</string>
+    <string id="Color_Orange">Orange</string>
+    <string id="Color_Yellow">Yellow</string>
+    <string id="Color_Green">Green</string>
+    <string id="Color_Blue">Blue</string>
+    <string id="Color_Purple">Purple</string>
+    <string id="Color_Pink">Pink</string>
+</strings>
