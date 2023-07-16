@@ -16,6 +16,7 @@ class WatchFace extends WatchUi.WatchFace {
         var h = dc.getHeight();
         var m = min(w, h);
         var now = Time.now();
+        var timeInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
         var dayProgress = now.subtract(Time.today()).value() / 86400d;
         var sys = System.getSystemStats();
         dc.setColor(Data.Settings.foreground, Data.Settings.background);
@@ -59,7 +60,7 @@ class WatchFace extends WatchUi.WatchFace {
 
         // Draw seconds arc
         if (Data.Settings.showSeconds) {
-            var secondProgress = rem(dayProgress * 1440d, 1d);
+            var secondProgress = timeInfo.sec / 60d;
             dc.setPenWidth(intMin1(m * 0.02));
             dc.drawArc(
                 w / 2,
@@ -73,12 +74,11 @@ class WatchFace extends WatchUi.WatchFace {
 
         // Draw date
         if (Data.Settings.showDate) {
-            var day = Time.Gregorian.info(now, Time.FORMAT_SHORT).day;
             dc.drawText(
                 w / 2,
                 h / 2,
                 Graphics.FONT_SMALL,
-                day.toString(),
+                timeInfo.day.toString(),
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
             );
         }
