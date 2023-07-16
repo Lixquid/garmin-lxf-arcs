@@ -17,4 +17,6 @@
     <string id="Color_Blue">Blue</string>
     <string id="Color_Purple">Purple</string>
     <string id="Color_Pink">Pink</string>
+
+    <string id="SettingsTitle">Settings</string>
 </strings>

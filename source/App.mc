@@ -5,6 +5,7 @@ import Toybox.WatchUi;
 class App extends Application.AppBase {
     function initialize() {
         AppBase.initialize();
+        Data.Strings.load();
         Data.Settings.load();
     }
 
