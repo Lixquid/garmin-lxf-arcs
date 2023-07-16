@@ -19,6 +19,7 @@ class WatchFace extends WatchUi.WatchFace {
         var dayProgress = now.subtract(Time.today()).value() / 86400d;
         var sys = System.getSystemStats();
         dc.setColor(Data.Settings.foreground, Data.Settings.background);
+        dc.setAntiAlias(true);
         dc.clear();
 
         // Draw hour labels
@@ -58,16 +59,16 @@ class WatchFace extends WatchUi.WatchFace {
 
         // Draw seconds arc
         if (Data.Settings.showSeconds) {
-        var secondProgress = rem(dayProgress * 1440d, 1d);
-        dc.setPenWidth(intMin1(m * 0.02));
-        dc.drawArc(
-            w / 2,
-            h / 2,
-            m * 0.33,
-            Graphics.ARC_CLOCKWISE,
-            90,
-            90 - secondProgress * 360
-        );
+            var secondProgress = rem(dayProgress * 1440d, 1d);
+            dc.setPenWidth(intMin1(m * 0.02));
+            dc.drawArc(
+                w / 2,
+                h / 2,
+                m * 0.33,
+                Graphics.ARC_CLOCKWISE,
+                90,
+                90 - secondProgress * 360
+            );
         }
 
         // Draw date
