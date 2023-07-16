@@ -37,18 +37,18 @@ class WatchFace extends WatchUi.WatchFace {
         // Draw hour arc
         var hourProgress = rem(dayProgress * 2d, 1d);
         dc.setPenWidth(intMin1(m * 0.08));
-        arcOrCutout(dc, w / 2, h / 2, m * 0.2, hourProgress, 8);
+        arcOrCutout(dc, w / 2, h / 2, m * 0.2, hourProgress, 5);
 
         // Draw minutes arc
         var minuteProgress = rem(dayProgress * 24d, 1d);
         dc.setPenWidth(intMin1(m * 0.04));
-        arcOrCutout(dc, w / 2, h / 2, m * 0.28, minuteProgress, 6);
+        arcOrCutout(dc, w / 2, h / 2, m * 0.28, minuteProgress, 3);
 
         // Draw seconds arc
         if (Data.Settings.showSeconds) {
             var secondProgress = timeInfo.sec / 60d;
             dc.setPenWidth(intMin1(m * 0.02));
-            arcOrCutout(dc, w / 2, h / 2, m * 0.33, secondProgress, 5);
+            arcOrCutout(dc, w / 2, h / 2, m * 0.33, secondProgress, 2);
         }
 
         // Draw date
