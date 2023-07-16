@@ -37,39 +37,18 @@ class WatchFace extends WatchUi.WatchFace {
         // Draw hour arc
         var hourProgress = rem(dayProgress * 2d, 1d);
         dc.setPenWidth(intMin1(m * 0.08));
-        dc.drawArc(
-            w / 2,
-            h / 2,
-            m * 0.2,
-            Graphics.ARC_CLOCKWISE,
-            90,
-            90 - hourProgress * 360
-        );
+        arcOrCutout(dc, w / 2, h / 2, m * 0.2, hourProgress, 8);
 
         // Draw minutes arc
         var minuteProgress = rem(dayProgress * 24d, 1d);
         dc.setPenWidth(intMin1(m * 0.04));
-        dc.drawArc(
-            w / 2,
-            h / 2,
-            m * 0.28,
-            Graphics.ARC_CLOCKWISE,
-            90,
-            90 - minuteProgress * 360
-        );
+        arcOrCutout(dc, w / 2, h / 2, m * 0.28, minuteProgress, 6);
 
         // Draw seconds arc
         if (Data.Settings.showSeconds) {
             var secondProgress = timeInfo.sec / 60d;
             dc.setPenWidth(intMin1(m * 0.02));
-            dc.drawArc(
-                w / 2,
-                h / 2,
-                m * 0.33,
-                Graphics.ARC_CLOCKWISE,
-                90,
-                90 - secondProgress * 360
-            );
+            arcOrCutout(dc, w / 2, h / 2, m * 0.33, secondProgress, 5);
         }
 
         // Draw date
@@ -115,5 +94,27 @@ class WatchFace extends WatchUi.WatchFace {
 
     private function min(a as Number, b as Number) as Number {
         return a < b ? a : b;
+    }
+
+    private function arcOrCutout(
+        dc as Dc,
+        x as Number,
+        y as Number,
+        r as Float,
+        a as Double,
+        gap as Number
+    ) {
+        if (Data.Settings.cutoutMode) {
+            dc.drawArc(
+                x,
+                y,
+                r,
+                Graphics.ARC_CLOCKWISE,
+                90 - gap - a * 360,
+                90 + gap - a * 360
+            );
+        } else {
+            dc.drawArc(x, y, r, Graphics.ARC_CLOCKWISE, 90, 90 - a * 360);
+        }
     }
 }

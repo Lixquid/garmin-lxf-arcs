@@ -10,6 +10,7 @@ module Data {
         var Setting_ShowSeconds = "Show Seconds";
         var Setting_ShowDate = "Show Date";
         var Setting_ShowBattery = "Show Battery";
+        var Setting_CutoutMode = "Cutout Mode";
 
         var Color_White = "White";
         var Color_Gray = "Gray";
@@ -42,6 +43,9 @@ module Data {
             Setting_ShowBattery = Application.loadResource(
                 $.Rez.Strings.Setting_ShowBattery
             );
+            Setting_CutoutMode = Application.loadResource(
+                $.Rez.Strings.Setting_CutoutMode
+            );
 
             Color_White = Application.loadResource($.Rez.Strings.Color_White);
             Color_Gray = Application.loadResource($.Rez.Strings.Color_Gray);
@@ -62,6 +66,7 @@ module Data {
         var showSeconds = false;
         var showDate = false;
         var showBattery = false;
+        var cutoutMode = false;
 
         function load() {
             background = Properties.getValue("Setting_Background");
@@ -69,6 +74,7 @@ module Data {
             showSeconds = Properties.getValue("Setting_ShowSeconds");
             showDate = Properties.getValue("Setting_ShowDate");
             showBattery = Properties.getValue("Setting_ShowBattery");
+            cutoutMode = Properties.getValue("Setting_CutoutMode");
         }
 
         function save() {
@@ -77,6 +83,7 @@ module Data {
             Properties.setValue("Setting_ShowSeconds", showSeconds);
             Properties.setValue("Setting_ShowDate", showDate);
             Properties.setValue("Setting_ShowBattery", showBattery);
+            Properties.setValue("Setting_CutoutMode", cutoutMode);
         }
     }
 }

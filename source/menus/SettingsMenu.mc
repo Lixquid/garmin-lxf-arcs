@@ -43,6 +43,10 @@ module SettingsMenu {
                     Data.Settings.showBattery = !Data.Settings.showBattery;
                     Data.Settings.save();
                     break;
+                case :cutoutMode:
+                    Data.Settings.cutoutMode = !Data.Settings.cutoutMode;
+                    Data.Settings.save();
+                    break;
             }
         }
 
@@ -114,6 +118,15 @@ module SettingsMenu {
                     null,
                     :showBattery,
                     Data.Settings.showBattery,
+                    null
+                )
+            );
+            menu.addItem(
+                new WatchUi.ToggleMenuItem(
+                    Data.Strings.Setting_CutoutMode,
+                    null,
+                    :cutoutMode,
+                    Data.Settings.cutoutMode,
                     null
                 )
             );
