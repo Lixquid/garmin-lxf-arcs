@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.System;
 import Toybox.Time;
 import Toybox.WatchUi;
 
@@ -14,13 +15,14 @@ class WatchFace extends WatchUi.WatchFace {
         var w = dc.getWidth();
         var h = dc.getHeight();
         var m = min(w, h);
-        var dayProgress = Time.now().subtract(Time.today()).value() / 86400d;
+        var now = Time.now();
+        var dayProgress = now.subtract(Time.today()).value() / 86400d;
+        var sys = System.getSystemStats();
         dc.setColor(Data.Settings.foreground, Data.Settings.background);
         dc.clear();
 
         // Draw hour labels
         for (var i = 1; i <= 12; i++) {
-            // dc.drawText(x, y, font, text, justification)
             dc.drawText(
                 w / 2 + m * 0.43 * Math.sin((i * 30 * Math.PI) / 180),
                 h / 2 - m * 0.43 * Math.cos((i * 30 * Math.PI) / 180),
@@ -60,11 +62,37 @@ class WatchFace extends WatchUi.WatchFace {
         dc.drawArc(
             w / 2,
             h / 2,
-            w * 0.33,
+            m * 0.33,
             Graphics.ARC_CLOCKWISE,
             90,
             90 - secondProgress * 360
         );
+
+        // Draw date
+        var day = Time.Gregorian.info(now, Time.FORMAT_SHORT).day;
+        dc.drawText(
+            w / 2,
+            h / 2,
+            Graphics.FONT_SMALL,
+            day.toString(),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
+        );
+
+        // Draw battery level
+        dc.setPenWidth(1);
+        dc.drawArc(w / 2, h / 2, m * 0.1, Graphics.ARC_CLOCKWISE, 0, 180);
+        dc.setPenWidth(intMin1(m * 0.02));
+        dc.drawArc(
+            w / 2,
+            h / 2,
+            m * 0.1,
+            Graphics.ARC_CLOCKWISE,
+            0,
+            sys.battery * -1.8
+        );
+
+        // Draw battery dot if charging
+        dc.fillCircle(w / 2 + m * 0.1, h / 2, m * 0.025);
     }
 
     private function rem(a as Double, b as Double) as Double {
