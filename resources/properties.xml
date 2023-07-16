@@ -2,6 +2,7 @@
     <!-- Settings -->
     <property id="Setting_Background" type="number">0xffaa00</property>
     <property id="Setting_Foreground" type="number">0x000000</property>
+    <property id="Setting_ShowSeconds" type="boolean">true</property>
     <property id="Setting_ShowDate" type="boolean">true</property>
     <property id="Setting_ShowBattery" type="boolean">true</property>
 </properties>

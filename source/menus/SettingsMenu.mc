@@ -31,6 +31,10 @@ module SettingsMenu {
                 case :background:
                     ColorMenu.show(self, true);
                     break;
+                case :showSeconds:
+                    Data.Settings.showSeconds = !Data.Settings.showSeconds;
+                    Data.Settings.save();
+                    break;
                 case :showDate:
                     Data.Settings.showDate = !Data.Settings.showDate;
                     Data.Settings.save();
@@ -86,6 +90,15 @@ module SettingsMenu {
                 )
             );
 
+            menu.addItem(
+                new WatchUi.ToggleMenuItem(
+                    Data.Strings.Setting_ShowSeconds,
+                    null,
+                    :showSeconds,
+                    Data.Settings.showSeconds,
+                    null
+                )
+            );
             menu.addItem(
                 new WatchUi.ToggleMenuItem(
                     Data.Strings.Setting_ShowDate,

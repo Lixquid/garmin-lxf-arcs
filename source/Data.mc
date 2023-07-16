@@ -7,6 +7,7 @@ module Data {
 
         var Setting_Background = "Background Color";
         var Setting_Foreground = "Foreground Color";
+        var Setting_ShowSeconds = "Show Seconds";
         var Setting_ShowDate = "Show Date";
         var Setting_ShowBattery = "Show Battery";
 
@@ -32,6 +33,9 @@ module Data {
             Setting_Foreground = Application.loadResource(
                 $.Rez.Strings.Setting_Foreground
             );
+            Setting_ShowSeconds = Application.loadResource(
+                $.Rez.Strings.Setting_ShowSeconds
+            );
             Setting_ShowDate = Application.loadResource(
                 $.Rez.Strings.Setting_ShowDate
             );
@@ -55,12 +59,14 @@ module Data {
     module Settings {
         var background = 0xff00ff;
         var foreground = 0xff00ff;
+        var showSeconds = false;
         var showDate = false;
         var showBattery = false;
 
         function load() {
             background = Properties.getValue("Setting_Background");
             foreground = Properties.getValue("Setting_Foreground");
+            showSeconds = Properties.getValue("Setting_ShowSeconds");
             showDate = Properties.getValue("Setting_ShowDate");
             showBattery = Properties.getValue("Setting_ShowBattery");
         }
@@ -68,6 +74,7 @@ module Data {
         function save() {
             Properties.setValue("Setting_Background", background);
             Properties.setValue("Setting_Foreground", foreground);
+            Properties.setValue("Setting_ShowSeconds", showSeconds);
             Properties.setValue("Setting_ShowDate", showDate);
             Properties.setValue("Setting_ShowBattery", showBattery);
         }

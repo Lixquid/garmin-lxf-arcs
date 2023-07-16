@@ -27,6 +27,9 @@
             <listEntry value="0xff55ff">@Strings.Color_Pink</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.Setting_ShowSeconds" title="@Strings.Setting_ShowSeconds">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.Setting_ShowDate" title="@Strings.Setting_ShowDate">
         <settingConfig type="boolean" />
     </setting>

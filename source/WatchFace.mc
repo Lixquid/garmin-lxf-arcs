@@ -57,6 +57,7 @@ class WatchFace extends WatchUi.WatchFace {
         );
 
         // Draw seconds arc
+        if (Data.Settings.showSeconds) {
         var secondProgress = rem(dayProgress * 1440d, 1d);
         dc.setPenWidth(intMin1(m * 0.02));
         dc.drawArc(
@@ -67,6 +68,7 @@ class WatchFace extends WatchUi.WatchFace {
             90,
             90 - secondProgress * 360
         );
+        }
 
         // Draw date
         if (Data.Settings.showDate) {
