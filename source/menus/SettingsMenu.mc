@@ -130,6 +130,15 @@ module SettingsMenu {
                     null
                 )
             );
+
+            menu.addItem(
+                new WatchUi.MenuItem(
+                    WatchUi.loadResource($.Rez.Strings.AppName),
+                    WatchUi.loadResource($.Rez.Strings.AppVersion),
+                    0,
+                    null
+                )
+            );
         }
     }
 }
