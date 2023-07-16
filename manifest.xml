@@ -6,9 +6,6 @@
             <iq:product id="approachs7047mm"/>
             <iq:product id="d2air"/>
             <iq:product id="d2airx10"/>
-            <iq:product id="d2delta"/>
-            <iq:product id="d2deltapx"/>
-            <iq:product id="d2deltas"/>
             <iq:product id="d2mach1"/>
             <iq:product id="descentg1"/>
             <iq:product id="descentmk2"/>
@@ -18,11 +15,8 @@
             <iq:product id="epix2pro42mm"/>
             <iq:product id="epix2pro47mm"/>
             <iq:product id="epix2pro51mm"/>
-            <iq:product id="fenix5"/>
             <iq:product id="fenix5plus"/>
-            <iq:product id="fenix5s"/>
             <iq:product id="fenix5splus"/>
-            <iq:product id="fenix5x"/>
             <iq:product id="fenix5xplus"/>
             <iq:product id="fenix6"/>
             <iq:product id="fenix6pro"/>
@@ -35,7 +29,6 @@
             <iq:product id="fenix7spro"/>
             <iq:product id="fenix7x"/>
             <iq:product id="fenix7xpro"/>
-            <iq:product id="fenixchronos"/>
             <iq:product id="fr245"/>
             <iq:product id="fr245m"/>
             <iq:product id="fr255"/>
@@ -45,10 +38,8 @@
             <iq:product id="fr265"/>
             <iq:product id="fr265s"/>
             <iq:product id="fr55"/>
-            <iq:product id="fr645"/>
             <iq:product id="fr645m"/>
             <iq:product id="fr745"/>
-            <iq:product id="fr935"/>
             <iq:product id="fr945"/>
             <iq:product id="fr945lte"/>
             <iq:product id="fr955"/>
@@ -80,9 +71,7 @@
             <iq:product id="venusq2"/>
             <iq:product id="venusq2m"/>
             <iq:product id="venusqm"/>
-            <iq:product id="vivoactive3"/>
             <iq:product id="vivoactive3m"/>
-            <iq:product id="vivoactive3mlte"/>
             <iq:product id="vivoactive4"/>
             <iq:product id="vivoactive4s"/>
         </iq:products>
