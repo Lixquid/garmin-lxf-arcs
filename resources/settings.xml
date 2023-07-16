@@ -27,4 +27,10 @@
             <listEntry value="0xff55ff">@Strings.Color_Pink</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.Setting_ShowDate" title="@Strings.Setting_ShowDate">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.Setting_ShowBattery" title="@Strings.Setting_ShowBattery">
+        <settingConfig type="boolean" />
+    </setting>
 </settings>

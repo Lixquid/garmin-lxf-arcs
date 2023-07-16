@@ -69,30 +69,34 @@ class WatchFace extends WatchUi.WatchFace {
         );
 
         // Draw date
-        var day = Time.Gregorian.info(now, Time.FORMAT_SHORT).day;
-        dc.drawText(
-            w / 2,
-            h / 2,
-            Graphics.FONT_SMALL,
-            day.toString(),
-            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
-        );
+        if (Data.Settings.showDate) {
+            var day = Time.Gregorian.info(now, Time.FORMAT_SHORT).day;
+            dc.drawText(
+                w / 2,
+                h / 2,
+                Graphics.FONT_SMALL,
+                day.toString(),
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
+            );
+        }
 
         // Draw battery level
-        dc.setPenWidth(1);
-        dc.drawArc(w / 2, h / 2, m * 0.1, Graphics.ARC_CLOCKWISE, 0, 180);
-        dc.setPenWidth(intMin1(m * 0.02));
-        dc.drawArc(
-            w / 2,
-            h / 2,
-            m * 0.1,
-            Graphics.ARC_CLOCKWISE,
-            0,
-            sys.battery * -1.8
-        );
+        if (Data.Settings.showBattery) {
+            dc.setPenWidth(1);
+            dc.drawArc(w / 2, h / 2, m * 0.1, Graphics.ARC_CLOCKWISE, 0, 180);
+            dc.setPenWidth(intMin1(m * 0.02));
+            dc.drawArc(
+                w / 2,
+                h / 2,
+                m * 0.1,
+                Graphics.ARC_CLOCKWISE,
+                0,
+                sys.battery * -1.8
+            );
 
-        // Draw battery dot if charging
-        dc.fillCircle(w / 2 + m * 0.1, h / 2, m * 0.025);
+            // Draw battery dot if charging
+            dc.fillCircle(w / 2 + m * 0.1, h / 2, m * 0.025);
+        }
     }
 
     private function rem(a as Double, b as Double) as Double {

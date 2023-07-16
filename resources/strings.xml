@@ -4,6 +4,8 @@
 
     <string id="Setting_Background">Background Color</string>
     <string id="Setting_Foreground">Foreground Color</string>
+    <string id="Setting_ShowDate">Show Date</string>
+    <string id="Setting_ShowBattery">Show Battery</string>
 
     <string id="Color_White">White</string>
     <string id="Color_Gray">Gray</string>

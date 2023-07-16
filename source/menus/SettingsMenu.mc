@@ -31,6 +31,14 @@ module SettingsMenu {
                 case :background:
                     ColorMenu.show(self, true);
                     break;
+                case :showDate:
+                    Data.Settings.showDate = !Data.Settings.showDate;
+                    Data.Settings.save();
+                    break;
+                case :showBattery:
+                    Data.Settings.showBattery = !Data.Settings.showBattery;
+                    Data.Settings.save();
+                    break;
             }
         }
 
@@ -74,6 +82,25 @@ module SettingsMenu {
                         ? colorMap[Data.Settings.foreground]
                         : Data.Settings.foreground,
                     :foreground,
+                    null
+                )
+            );
+
+            menu.addItem(
+                new WatchUi.ToggleMenuItem(
+                    Data.Strings.Setting_ShowDate,
+                    null,
+                    :showDate,
+                    Data.Settings.showDate,
+                    null
+                )
+            );
+            menu.addItem(
+                new WatchUi.ToggleMenuItem(
+                    Data.Strings.Setting_ShowBattery,
+                    null,
+                    :showBattery,
+                    Data.Settings.showBattery,
                     null
                 )
             );

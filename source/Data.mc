@@ -6,6 +6,8 @@ module Data {
 
         var Setting_Background = "Background Color";
         var Setting_Foreground = "Foreground Color";
+        var Setting_ShowDate = "Show Date";
+        var Setting_ShowBattery = "Show Battery";
 
         var Color_White = "White";
         var Color_Gray = "Gray";
@@ -22,17 +24,23 @@ module Data {
     }
 
     module Settings {
-        var background = 0x000000;
-        var foreground = 0xffffff;
+        var background = 0xff00ff;
+        var foreground = 0xff00ff;
+        var showDate = false;
+        var showBattery = false;
 
         function load() {
             background = Properties.getValue("Setting_Background");
             foreground = Properties.getValue("Setting_Foreground");
+            showDate = Properties.getValue("Setting_ShowDate");
+            showBattery = Properties.getValue("Setting_ShowBattery");
         }
 
         function save() {
             Properties.setValue("Setting_Background", background);
             Properties.setValue("Setting_Foreground", foreground);
+            Properties.setValue("Setting_ShowDate", showDate);
+            Properties.setValue("Setting_ShowBattery", showBattery);
         }
     }
 }
