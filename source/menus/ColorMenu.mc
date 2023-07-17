@@ -37,11 +37,11 @@ module SettingsMenu {
                     : Data.Strings.Setting_Foreground,
             });
 
-            var colors = SettingsMenu.colorMap.keys();
+            var colors = Data.colors.keys();
             for (var i = 0; i < colors.size(); i++) {
                 menu.addItem(
                     new WatchUi.MenuItem(
-                        colorMap[colors[i]],
+                        Data.colors[colors[i]],
                         null,
                         colors[i],
                         null

@@ -12,6 +12,7 @@
 
     <string id="Color_White">White</string>
     <string id="Color_Gray">Gray</string>
+    <string id="Color_DarkGray">Dark Gray</string>
     <string id="Color_Black">Black</string>
     <string id="Color_Red">Red</string>
     <string id="Color_Orange">Orange</string>

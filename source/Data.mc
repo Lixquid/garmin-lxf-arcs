@@ -1,7 +1,22 @@
 import Toybox.Application;
 import Toybox.Application.Properties;
+import Toybox.Lang;
 
 module Data {
+    var colors as Dictionary<Number, String> = {
+        0xffffff => Strings.Color_White,
+        0xaaaaaa => Strings.Color_Gray,
+        0x555555 => Strings.Color_DarkGray,
+        0x000000 => Strings.Color_Black,
+        0xff0000 => Strings.Color_Red,
+        0xffaa00 => Strings.Color_Orange,
+        0xffff00 => Strings.Color_Yellow,
+        0x00aa00 => Strings.Color_Green,
+        0x0055ff => Strings.Color_Blue,
+        0xaa00ff => Strings.Color_Purple,
+        0xff55ff => Strings.Color_Pink,
+    };
+
     module Strings {
         var SettingsMenu_Title = "Settings";
 
@@ -15,6 +30,7 @@ module Data {
 
         var Color_White = "White";
         var Color_Gray = "Gray";
+        var Color_DarkGray = "Dark Gray";
         var Color_Black = "Black";
         var Color_Red = "Red";
         var Color_Orange = "Orange";
@@ -53,6 +69,9 @@ module Data {
 
             Color_White = Application.loadResource($.Rez.Strings.Color_White);
             Color_Gray = Application.loadResource($.Rez.Strings.Color_Gray);
+            Color_DarkGray = Application.loadResource(
+                $.Rez.Strings.Color_DarkGray
+            );
             Color_Black = Application.loadResource($.Rez.Strings.Color_Black);
             Color_Red = Application.loadResource($.Rez.Strings.Color_Red);
             Color_Orange = Application.loadResource($.Rez.Strings.Color_Orange);

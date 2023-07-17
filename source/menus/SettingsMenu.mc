@@ -2,19 +2,6 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 module SettingsMenu {
-    var colorMap as Dictionary<Number, String> = {
-        0xffffff => Data.Strings.Color_White,
-        0xaaaaaa => Data.Strings.Color_Gray,
-        0x000000 => Data.Strings.Color_Black,
-        0xff0000 => Data.Strings.Color_Red,
-        0xffaa00 => Data.Strings.Color_Orange,
-        0xffff00 => Data.Strings.Color_Yellow,
-        0x00aa00 => Data.Strings.Color_Green,
-        0x0055ff => Data.Strings.Color_Blue,
-        0xaa00ff => Data.Strings.Color_Purple,
-        0xff55ff => Data.Strings.Color_Pink,
-    };
-
     class Delegate extends WatchUi.Menu2InputDelegate {
         (:initialized)
         private var _menu as Menu2;
@@ -82,8 +69,8 @@ module SettingsMenu {
             menu.addItem(
                 new WatchUi.MenuItem(
                     Data.Strings.Setting_Background,
-                    colorMap.hasKey(Data.Settings.background)
-                        ? colorMap[Data.Settings.background]
+                    Data.colors.hasKey(Data.Settings.background)
+                        ? Data.colors[Data.Settings.background]
                         : Data.Settings.background,
                     :background,
                     null
@@ -92,8 +79,8 @@ module SettingsMenu {
             menu.addItem(
                 new WatchUi.MenuItem(
                     Data.Strings.Setting_Foreground,
-                    colorMap.hasKey(Data.Settings.foreground)
-                        ? colorMap[Data.Settings.foreground]
+                    Data.colors.hasKey(Data.Settings.foreground)
+                        ? Data.colors[Data.Settings.foreground]
                         : Data.Settings.foreground,
                     :foreground,
                     null
