@@ -7,6 +7,7 @@
     <string id="Setting_ShowSeconds">Show Seconds</string>
     <string id="Setting_ShowDate">Show Date</string>
     <string id="Setting_ShowBattery">Show Battery</string>
+    <string id="Setting_NumericHourMarks">Numeric Hour Marks</string>
     <string id="Setting_CutoutMode">Cutout Mode</string>
 
     <string id="Color_White">White</string>

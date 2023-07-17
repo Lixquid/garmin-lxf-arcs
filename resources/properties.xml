@@ -5,5 +5,6 @@
     <property id="Setting_ShowSeconds" type="boolean">true</property>
     <property id="Setting_ShowDate" type="boolean">true</property>
     <property id="Setting_ShowBattery" type="boolean">true</property>
+    <property id="Setting_NumericHourMarks" type="boolean">true</property>
     <property id="Setting_CutoutMode" type="boolean">false</property>
 </properties>

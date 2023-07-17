@@ -36,6 +36,9 @@
     <setting propertyKey="@Properties.Setting_ShowBattery" title="@Strings.Setting_ShowBattery">
         <settingConfig type="boolean" />
     </setting>
+    <setting propertyKey="@Properties.Setting_NumericHourMarks" title="@Strings.Setting_NumericHourMarks">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.Setting_CutoutMode" title="@Strings.Setting_CutoutMode">
         <settingConfig type="boolean" />
     </setting>

@@ -10,6 +10,7 @@ module Data {
         var Setting_ShowSeconds = "Show Seconds";
         var Setting_ShowDate = "Show Date";
         var Setting_ShowBattery = "Show Battery";
+        var Setting_NumericHourMarks = "Numeric Hour Marks";
         var Setting_CutoutMode = "Cutout Mode";
 
         var Color_White = "White";
@@ -43,6 +44,9 @@ module Data {
             Setting_ShowBattery = Application.loadResource(
                 $.Rez.Strings.Setting_ShowBattery
             );
+            Setting_NumericHourMarks = Application.loadResource(
+                $.Rez.Strings.Setting_NumericHourMarks
+            );
             Setting_CutoutMode = Application.loadResource(
                 $.Rez.Strings.Setting_CutoutMode
             );
@@ -66,6 +70,7 @@ module Data {
         var showSeconds = false;
         var showDate = false;
         var showBattery = false;
+        var numericHourMarks = false;
         var cutoutMode = false;
 
         function load() {
@@ -74,6 +79,7 @@ module Data {
             showSeconds = Properties.getValue("Setting_ShowSeconds");
             showDate = Properties.getValue("Setting_ShowDate");
             showBattery = Properties.getValue("Setting_ShowBattery");
+            numericHourMarks = Properties.getValue("Setting_NumericHourMarks");
             cutoutMode = Properties.getValue("Setting_CutoutMode");
         }
 
@@ -83,6 +89,7 @@ module Data {
             Properties.setValue("Setting_ShowSeconds", showSeconds);
             Properties.setValue("Setting_ShowDate", showDate);
             Properties.setValue("Setting_ShowBattery", showBattery);
+            Properties.setValue("Setting_NumericHourMarks", numericHourMarks);
             Properties.setValue("Setting_CutoutMode", cutoutMode);
         }
     }

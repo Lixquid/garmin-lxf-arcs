@@ -24,6 +24,7 @@ A watch face for Garmin devices. Minimalist, circular, customisable.
 - Show Seconds: If the outermost arc showing seconds should be shown
 - Show Date: If a number representing the day of the month should be shown
 - Show Battery: If the battery indicator should be shown
+- Numeric Hour Marks: Shows numbers at the hour positions
 - Cutout Mode: If true, circles with a small notch will be used instead of
   filled arcs
 

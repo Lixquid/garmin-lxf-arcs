@@ -25,13 +25,25 @@ class WatchFace extends WatchUi.WatchFace {
 
         // Draw hour labels
         for (var i = 1; i <= 12; i++) {
-            dc.drawText(
-                w / 2 + m * 0.43 * Math.sin((i * 30 * Math.PI) / 180),
-                h / 2 - m * 0.43 * Math.cos((i * 30 * Math.PI) / 180),
-                Graphics.FONT_TINY,
-                i.toString(),
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
-            );
+            if (Data.Settings.numericHourMarks) {
+                dc.drawText(
+                    w / 2 + m * 0.43 * Math.sin((i * 30 * Math.PI) / 180),
+                    h / 2 - m * 0.43 * Math.cos((i * 30 * Math.PI) / 180),
+                    Graphics.FONT_TINY,
+                    i.toString(),
+                    Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
+                );
+            } else {
+                dc.setPenWidth(intMin1(m * 0.05));
+                dc.drawArc(
+                    w / 2,
+                    h / 2,
+                    m * 0.43,
+                    Graphics.ARC_CLOCKWISE,
+                    30 * i + 0.5,
+                    30 * i - 0.5
+                );
+            }
         }
 
         // Draw hour arc
