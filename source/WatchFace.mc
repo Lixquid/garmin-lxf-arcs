@@ -36,14 +36,13 @@ class WatchFace extends WatchUi.WatchFace {
                     Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
                 );
             } else {
-                dc.setPenWidth(intMin1(m * 0.05));
-                dc.drawArc(
-                    w / 2,
-                    h / 2,
-                    m * 0.43,
-                    Graphics.ARC_CLOCKWISE,
-                    30 * i + 0.5,
-                    30 * i - 0.5
+                dc.setPenWidth(2);
+                // dc.drawLine(x1, y1, x2, y2)
+                dc.drawLine(
+                    w / 2 + m * 0.4 * Math.sin((i * 30 * Math.PI) / 180),
+                    h / 2 - m * 0.4 * Math.cos((i * 30 * Math.PI) / 180),
+                    w / 2 + m * 0.45 * Math.sin((i * 30 * Math.PI) / 180),
+                    h / 2 - m * 0.45 * Math.cos((i * 30 * Math.PI) / 180)
                 );
             }
         }
