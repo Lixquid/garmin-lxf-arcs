@@ -71,7 +71,7 @@ module SettingsMenu {
                     Data.Strings.Setting_Background,
                     Data.colors.hasKey(Data.Settings.background)
                         ? Data.colors[Data.Settings.background]
-                        : Data.Settings.background,
+                        : Data.Settings.background.format("%06X"),
                     :background,
                     null
                 )
@@ -81,7 +81,7 @@ module SettingsMenu {
                     Data.Strings.Setting_Foreground,
                     Data.colors.hasKey(Data.Settings.foreground)
                         ? Data.colors[Data.Settings.foreground]
-                        : Data.Settings.foreground,
+                        : Data.Settings.foreground.format("%06X"),
                     :foreground,
                     null
                 )
