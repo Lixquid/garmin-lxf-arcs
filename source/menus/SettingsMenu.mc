@@ -1,7 +1,8 @@
+import Toybox.Lang;
 import Toybox.WatchUi;
 
 module SettingsMenu {
-    var colorMap = {
+    var colorMap as Dictionary<Number, String> = {
         0xffffff => Data.Strings.Color_White,
         0xaaaaaa => Data.Strings.Color_Gray,
         0x000000 => Data.Strings.Color_Black,
