@@ -20,7 +20,9 @@ class WatchFace extends WatchUi.WatchFace {
         var dayProgress = now.subtract(Time.today()).value() / 86400d;
         var sys = System.getSystemStats();
         dc.setColor(Data.Settings.foreground, Data.Settings.background);
-        dc.setAntiAlias(true);
+        if (dc has :setAntiAlias) {
+            dc.setAntiAlias(true);
+        }
         dc.clear();
 
         // Draw hour labels
