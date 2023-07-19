@@ -88,11 +88,6 @@ class WatchFace extends WatchUi.WatchFace {
                 0,
                 sys.battery * -1.8
             );
-
-            // Draw battery dot if charging
-            if (sys.charging) {
-                dc.fillCircle(w / 2 + m * 0.1, h / 2, m * 0.025);
-            }
         }
     }
 
