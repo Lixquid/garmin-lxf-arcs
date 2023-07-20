@@ -19,9 +19,8 @@ module SettingsMenu {
                 case :background:
                     ColorMenu.show(self, true);
                     break;
-                case :showSeconds:
-                    Data.Settings.showSeconds = !Data.Settings.showSeconds;
-                    Data.Settings.save();
+                case :layout:
+                    LayoutMenu.show(self);
                     break;
                 case :showDate:
                     Data.Settings.showDate = !Data.Settings.showDate;
@@ -69,8 +68,8 @@ module SettingsMenu {
             menu.addItem(
                 new WatchUi.MenuItem(
                     Data.Strings.Setting_Background,
-                    Data.colors.hasKey(Data.Settings.background)
-                        ? Data.colors[Data.Settings.background]
+                    Data.Strings.Map.colors.hasKey(Data.Settings.background)
+                        ? Data.Strings.Map.colors[Data.Settings.background]
                         : Data.Settings.background.format("%06X"),
                     :background,
                     null
@@ -79,23 +78,22 @@ module SettingsMenu {
             menu.addItem(
                 new WatchUi.MenuItem(
                     Data.Strings.Setting_Foreground,
-                    Data.colors.hasKey(Data.Settings.foreground)
-                        ? Data.colors[Data.Settings.foreground]
+                    Data.Strings.Map.colors.hasKey(Data.Settings.foreground)
+                        ? Data.Strings.Map.colors[Data.Settings.foreground]
                         : Data.Settings.foreground.format("%06X"),
                     :foreground,
                     null
                 )
             );
-
             menu.addItem(
-                new WatchUi.ToggleMenuItem(
-                    Data.Strings.Setting_ShowSeconds,
-                    null,
-                    :showSeconds,
-                    Data.Settings.showSeconds,
+                new WatchUi.MenuItem(
+                    Data.Strings.Setting_Layout,
+                    Data.Strings.Map.layouts[Data.Settings.layout],
+                    :layout,
                     null
                 )
             );
+
             menu.addItem(
                 new WatchUi.ToggleMenuItem(
                     Data.Strings.Setting_ShowDate,

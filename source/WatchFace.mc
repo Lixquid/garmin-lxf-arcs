@@ -15,6 +15,7 @@ class WatchFace extends WatchUi.WatchFace {
         var w = dc.getWidth();
         var h = dc.getHeight();
         var m = min(w, h);
+        var l = Data.Settings.layout;
         var now = Time.now();
         var timeInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
         var dayProgress = now.subtract(Time.today()).value() / 86400d;
@@ -26,23 +27,27 @@ class WatchFace extends WatchUi.WatchFace {
         dc.clear();
 
         // Draw hour labels
-        for (var i = 1; i <= 12; i++) {
+        var hr24 =
+            l == Data.LAYOUT_24HR ||
+            l == Data.LAYOUT_24HRMIN ||
+            l == Data.LAYOUT_24HRMINSEC;
+        var hr24_ang = hr24 ? 15 : 30;
+        for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
             if (Data.Settings.numericHourMarks) {
                 dc.drawText(
-                    w / 2 + m * 0.43 * Math.sin((i * 30 * Math.PI) / 180),
-                    h / 2 - m * 0.43 * Math.cos((i * 30 * Math.PI) / 180),
+                    w / 2 + m * 0.43 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                    h / 2 - m * 0.43 * Math.cos((i * hr24_ang * Math.PI) / 180),
                     Graphics.FONT_TINY,
                     i.toString(),
                     Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
                 );
             } else {
                 dc.setPenWidth(2);
-                // dc.drawLine(x1, y1, x2, y2)
                 dc.drawLine(
-                    w / 2 + m * 0.4 * Math.sin((i * 30 * Math.PI) / 180),
-                    h / 2 - m * 0.4 * Math.cos((i * 30 * Math.PI) / 180),
-                    w / 2 + m * 0.45 * Math.sin((i * 30 * Math.PI) / 180),
-                    h / 2 - m * 0.45 * Math.cos((i * 30 * Math.PI) / 180)
+                    w / 2 + m * 0.4 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                    h / 2 - m * 0.4 * Math.cos((i * hr24_ang * Math.PI) / 180),
+                    w / 2 + m * 0.45 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                    h / 2 - m * 0.45 * Math.cos((i * hr24_ang * Math.PI) / 180)
                 );
             }
         }
@@ -50,7 +55,7 @@ class WatchFace extends WatchUi.WatchFace {
         var p = 0.34;
 
         // Draw seconds arc
-        if (Data.Settings.showSeconds) {
+        if (l == Data.LAYOUT_24HRMINSEC || l == Data.LAYOUT_12HRMINSEC) {
             var secondProgress = timeInfo.sec / 60d;
             dc.setPenWidth(intMin1(m * 0.02));
             arcOrCutout(dc, w / 2, h / 2, m * (p - 0.01), secondProgress, 2);
@@ -58,16 +63,30 @@ class WatchFace extends WatchUi.WatchFace {
         }
 
         // Draw minutes arc
-        var minuteProgress = rem(dayProgress * 24d, 1d);
-        dc.setPenWidth(intMin1(m * 0.04));
-        arcOrCutout(dc, w / 2, h / 2, m * (p - 0.02), minuteProgress, 3);
-        p -= 0.06;
+        if (
+            l == Data.LAYOUT_24HRMIN ||
+            l == Data.LAYOUT_24HRMINSEC ||
+            l == Data.LAYOUT_12HRMIN ||
+            l == Data.LAYOUT_12HRMINSEC
+        ) {
+            var minuteProgress = rem(dayProgress * 24d, 1d);
+            dc.setPenWidth(intMin1(m * 0.04));
+            arcOrCutout(dc, w / 2, h / 2, m * (p - 0.02), minuteProgress, 3);
+            p -= 0.06;
+        }
 
         // Draw hour arc
-        var hourProgress = rem(dayProgress * 2d, 1d);
-        dc.setPenWidth(intMin1(m * 0.08));
-        arcOrCutout(dc, w / 2, h / 2, m * (p - 0.04), hourProgress, 5);
-        p -= 0.1;
+        if (l == Data.LAYOUT_12HRMIN || l == Data.LAYOUT_12HRMINSEC) {
+            var hourProgress = rem(dayProgress * 2d, 1d);
+            dc.setPenWidth(intMin1(m * 0.08));
+            arcOrCutout(dc, w / 2, h / 2, m * (p - 0.04), hourProgress, 5);
+            p -= 0.1;
+        } else {
+            var hourProgress = rem(dayProgress, 1d);
+            dc.setPenWidth(intMin1(m * 0.08));
+            arcOrCutout(dc, w / 2, h / 2, m * (p - 0.04), hourProgress, 5);
+            p -= 0.1;
+        }
 
         // Draw date
         if (Data.Settings.showDate) {

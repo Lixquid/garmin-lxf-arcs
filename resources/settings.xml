@@ -29,8 +29,14 @@
             <listEntry value="0xff55ff">@Strings.Color_Pink</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.Setting_ShowSeconds" title="@Strings.Setting_ShowSeconds">
-        <settingConfig type="boolean" />
+    <setting propertyKey="@Properties.Setting_Layout" title="@Strings.Setting_Layout">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.Setting_Layout_12HrMinSec</listEntry>
+            <listEntry value="1">@Strings.Setting_Layout_12HrMin</listEntry>
+            <listEntry value="2">@Strings.Setting_Layout_24HrMinSec</listEntry>
+            <listEntry value="3">@Strings.Setting_Layout_24HrMin</listEntry>
+            <listEntry value="4">@Strings.Setting_Layout_24Hr</listEntry>
+        </settingConfig>
     </setting>
     <setting propertyKey="@Properties.Setting_ShowDate" title="@Strings.Setting_ShowDate">
         <settingConfig type="boolean" />

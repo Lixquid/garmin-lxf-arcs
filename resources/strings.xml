@@ -2,9 +2,15 @@
     <string id="AppName">LxF Arcs</string>
     <string id="AppVersion">0.1.0</string>
 
+    <string id="Setting_Layout">Layout</string>
+    <string id="Setting_Layout_12HrMinSec">12 Hour, Minutes, Seconds</string>
+    <string id="Setting_Layout_12HrMin">12 Hour, Minutes</string>
+    <string id="Setting_Layout_24HrMinSec">24 Hour, Minutes, Seconds</string>
+    <string id="Setting_Layout_24HrMin">24 Hour, Minutes</string>
+    <string id="Setting_Layout_24Hr">24 Hour</string>
+
     <string id="Setting_Background">Background Color</string>
     <string id="Setting_Foreground">Foreground Color</string>
-    <string id="Setting_ShowSeconds">Show Seconds</string>
     <string id="Setting_ShowDate">Show Date</string>
     <string id="Setting_ShowBattery">Show Battery</string>
     <string id="Setting_NumericHourMarks">Numeric Hour Marks</string>

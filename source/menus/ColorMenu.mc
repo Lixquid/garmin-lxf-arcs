@@ -31,17 +31,16 @@ module SettingsMenu {
 
         function create(background as Boolean) {
             var menu = new WatchUi.Menu2({
-                // TODO: Localize
                 :title => background
                     ? Data.Strings.Setting_Background
                     : Data.Strings.Setting_Foreground,
             });
 
-            var colors = Data.colors.keys();
+            var colors = Data.Strings.Map.colors.keys();
             for (var i = 0; i < colors.size(); i++) {
                 menu.addItem(
                     new WatchUi.MenuItem(
-                        Data.colors[colors[i]],
+                        Data.Strings.Map.colors[colors[i]],
                         null,
                         colors[i],
                         null
