@@ -31,20 +31,26 @@
     </setting>
     <setting propertyKey="@Properties.Setting_Layout" title="@Strings.Setting_Layout">
         <settingConfig type="list">
-            <listEntry value="0">@Strings.Setting_Layout_12HrMinSec</listEntry>
-            <listEntry value="1">@Strings.Setting_Layout_12HrMin</listEntry>
-            <listEntry value="2">@Strings.Setting_Layout_24HrMinSec</listEntry>
-            <listEntry value="3">@Strings.Setting_Layout_24HrMin</listEntry>
-            <listEntry value="4">@Strings.Setting_Layout_24Hr</listEntry>
+            <listEntry value="0">@Strings.Layout_12HrMinSec</listEntry>
+            <listEntry value="1">@Strings.Layout_12HrMin</listEntry>
+            <listEntry value="2">@Strings.Layout_24HrMinSec</listEntry>
+            <listEntry value="3">@Strings.Layout_24HrMin</listEntry>
+            <listEntry value="4">@Strings.Layout_24Hr</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.Setting_HourMarks" title="@Strings.Setting_HourMarks">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.HourMark_None</listEntry>
+            <listEntry value="10">@Strings.HourMark_Stick</listEntry>
+            <listEntry value="11">@Strings.HourMark_Dot</listEntry>
+            <listEntry value="20">@Strings.HourMark_SmallNumbers</listEntry>
+            <listEntry value="21">@Strings.HourMark_LargeNumbers</listEntry>
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.Setting_ShowDate" title="@Strings.Setting_ShowDate">
         <settingConfig type="boolean" />
     </setting>
     <setting propertyKey="@Properties.Setting_ShowBattery" title="@Strings.Setting_ShowBattery">
-        <settingConfig type="boolean" />
-    </setting>
-    <setting propertyKey="@Properties.Setting_NumericHourMarks" title="@Strings.Setting_NumericHourMarks">
         <settingConfig type="boolean" />
     </setting>
     <setting propertyKey="@Properties.Setting_CutoutMode" title="@Strings.Setting_CutoutMode">

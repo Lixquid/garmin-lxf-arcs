@@ -19,9 +19,9 @@ module SettingsMenu {
 
             function onSelect(item as MenuItem) {
                 if (_background) {
-                    Data.Settings.background = item.getId();
+                    Data.Settings.background = item.getId() as Number;
                 } else {
-                    Data.Settings.foreground = item.getId();
+                    Data.Settings.foreground = item.getId() as Number;
                 }
                 Data.Settings.save();
                 _parentMenu.rebuild();

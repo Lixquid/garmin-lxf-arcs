@@ -22,17 +22,15 @@ module SettingsMenu {
                 case :layout:
                     LayoutMenu.show(self);
                     break;
+                case :hourMarks:
+                    HourMarksMenu.show(self);
+                    break;
                 case :showDate:
                     Data.Settings.showDate = !Data.Settings.showDate;
                     Data.Settings.save();
                     break;
                 case :showBattery:
                     Data.Settings.showBattery = !Data.Settings.showBattery;
-                    Data.Settings.save();
-                    break;
-                case :numericHourMarks:
-                    Data.Settings.numericHourMarks =
-                        !Data.Settings.numericHourMarks;
                     Data.Settings.save();
                     break;
                 case :cutoutMode:
@@ -97,6 +95,14 @@ module SettingsMenu {
                     null
                 )
             );
+            menu.addItem(
+                new WatchUi.MenuItem(
+                    Data.Strings.Setting_HourMarks,
+                    Data.Strings.Map.hourMarks[Data.Settings.hourMarks],
+                    :hourMarks,
+                    null
+                )
+            );
 
             menu.addItem(
                 new WatchUi.ToggleMenuItem(
@@ -113,15 +119,6 @@ module SettingsMenu {
                     null,
                     :showBattery,
                     Data.Settings.showBattery,
-                    null
-                )
-            );
-            menu.addItem(
-                new WatchUi.ToggleMenuItem(
-                    Data.Strings.Setting_NumericHourMarks,
-                    null,
-                    :numericHourMarks,
-                    Data.Settings.numericHourMarks,
                     null
                 )
             );

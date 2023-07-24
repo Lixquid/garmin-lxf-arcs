@@ -80,28 +80,65 @@ class WatchFace extends WatchUi.WatchFace {
                     h / 2 - m * 0.4 * Math.cos((i * hr24_ang * Math.PI) / 180)
                 );
             }
-            dc.setColor(Data.Settings.foreground, Data.Settings.background);
         }
 
         // Indices
-        dc.setPenWidth(2);
-        for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
-            if (Data.Settings.numericHourMarks) {
-                dc.drawText(
-                    w / 2 + m * 0.43 * Math.sin((i * hr24_ang * Math.PI) / 180),
-                    h / 2 - m * 0.43 * Math.cos((i * hr24_ang * Math.PI) / 180),
-                    Graphics.FONT_TINY,
-                    i.toString(),
-                    Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
-                );
-            } else {
-                dc.drawLine(
-                    w / 2 + m * 0.4 * Math.sin((i * hr24_ang * Math.PI) / 180),
-                    h / 2 - m * 0.4 * Math.cos((i * hr24_ang * Math.PI) / 180),
-                    w / 2 + m * 0.45 * Math.sin((i * hr24_ang * Math.PI) / 180),
-                    h / 2 - m * 0.45 * Math.cos((i * hr24_ang * Math.PI) / 180)
-                );
-            }
+        dc.setColor(Data.Settings.foreground, Graphics.COLOR_TRANSPARENT);
+        switch (Data.Settings.hourMarks) {
+            case Data.HOURMARK_STICK:
+                for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
+                    dc.setPenWidth(i % 3 == 0 ? 4 : 2);
+                    dc.drawLine(
+                        w / 2 +
+                            m * 0.4 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                        h / 2 -
+                            m * 0.4 * Math.cos((i * hr24_ang * Math.PI) / 180),
+                        w / 2 +
+                            m * 0.45 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                        h / 2 -
+                            m * 0.45 * Math.cos((i * hr24_ang * Math.PI) / 180)
+                    );
+                }
+                break;
+            case Data.HOURMARK_DOT:
+                for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
+                    dc.fillCircle(
+                        w / 2 +
+                            m * 0.43 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                        h / 2 -
+                            m * 0.43 * Math.cos((i * hr24_ang * Math.PI) / 180),
+                        2
+                    );
+                }
+                break;
+            case Data.HOURMARK_SMALLNUMBERS:
+                for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
+                    dc.drawText(
+                        w / 2 +
+                            m * 0.43 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                        h / 2 -
+                            m * 0.43 * Math.cos((i * hr24_ang * Math.PI) / 180),
+                        Graphics.FONT_TINY,
+                        i.toString(),
+                        Graphics.TEXT_JUSTIFY_CENTER |
+                            Graphics.TEXT_JUSTIFY_VCENTER
+                    );
+                }
+                break;
+            case Data.HOURMARK_LARGENUMBERS:
+                for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
+                    dc.drawText(
+                        w / 2 +
+                            m * 0.43 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                        h / 2 -
+                            m * 0.43 * Math.cos((i * hr24_ang * Math.PI) / 180),
+                        Graphics.FONT_MEDIUM,
+                        i.toString(),
+                        Graphics.TEXT_JUSTIFY_CENTER |
+                            Graphics.TEXT_JUSTIFY_VCENTER
+                    );
+                }
+                break;
         }
 
         // Draw date
