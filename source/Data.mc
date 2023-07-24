@@ -12,34 +12,34 @@ module Data {
     }
 
     module Strings {
-        var SettingsMenu_Title = "Settings";
+        var SettingsMenu_Title as String = "";
 
-        var Setting_Background = "Background Color";
-        var Setting_Foreground = "Foreground Color";
-        var Setting_Layout = "Layout";
-        var Setting_ShowDate = "Show Date";
-        var Setting_ShowBattery = "Show Battery";
-        var Setting_NumericHourMarks = "Numeric Hour Marks";
-        var Setting_CutoutMode = "Cutout Mode";
-        var Setting_SegmentedArcs = "Segmented Arcs";
+        var Setting_Background as String = "";
+        var Setting_Foreground as String = "";
+        var Setting_Layout as String = "";
+        var Setting_ShowDate as String = "";
+        var Setting_ShowBattery as String = "";
+        var Setting_NumericHourMarks as String = "";
+        var Setting_CutoutMode as String = "";
+        var Setting_SegmentedArcs as String = "";
 
-        var Setting_Layout_12HrMinSec = "12 Hour, Minutes, Seconds";
-        var Setting_Layout_12HrMin = "12 Hour, Minutes";
-        var Setting_Layout_24HrMinSec = "24 Hour, Minutes, Seconds";
-        var Setting_Layout_24HrMin = "24 Hour, Minutes";
-        var Setting_Layout_24Hr = "24 Hour";
+        var Setting_Layout_12HrMinSec as String = "";
+        var Setting_Layout_12HrMin as String = "";
+        var Setting_Layout_24HrMinSec as String = "";
+        var Setting_Layout_24HrMin as String = "";
+        var Setting_Layout_24Hr as String = "";
 
-        var Color_White = "White";
-        var Color_Gray = "Gray";
-        var Color_DarkGray = "Dark Gray";
-        var Color_Black = "Black";
-        var Color_Red = "Red";
-        var Color_Orange = "Orange";
-        var Color_Yellow = "Yellow";
-        var Color_Green = "Green";
-        var Color_Blue = "Blue";
-        var Color_Purple = "Purple";
-        var Color_Pink = "Pink";
+        var Color_White as String = "";
+        var Color_Gray as String = "";
+        var Color_DarkGray as String = "";
+        var Color_Black as String = "";
+        var Color_Red as String = "";
+        var Color_Orange as String = "";
+        var Color_Yellow as String = "";
+        var Color_Green as String = "";
+        var Color_Blue as String = "";
+        var Color_Purple as String = "";
+        var Color_Pink as String = "";
 
         module Map {
             (:initialized)
