@@ -26,32 +26,6 @@ class WatchFace extends WatchUi.WatchFace {
         }
         dc.clear();
 
-        // Draw hour labels
-        var hr24 =
-            l == Data.LAYOUT_24HR ||
-            l == Data.LAYOUT_24HRMIN ||
-            l == Data.LAYOUT_24HRMINSEC;
-        var hr24_ang = hr24 ? 15 : 30;
-        for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
-            if (Data.Settings.numericHourMarks) {
-                dc.drawText(
-                    w / 2 + m * 0.43 * Math.sin((i * hr24_ang * Math.PI) / 180),
-                    h / 2 - m * 0.43 * Math.cos((i * hr24_ang * Math.PI) / 180),
-                    Graphics.FONT_TINY,
-                    i.toString(),
-                    Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
-                );
-            } else {
-                dc.setPenWidth(2);
-                dc.drawLine(
-                    w / 2 + m * 0.4 * Math.sin((i * hr24_ang * Math.PI) / 180),
-                    h / 2 - m * 0.4 * Math.cos((i * hr24_ang * Math.PI) / 180),
-                    w / 2 + m * 0.45 * Math.sin((i * hr24_ang * Math.PI) / 180),
-                    h / 2 - m * 0.45 * Math.cos((i * hr24_ang * Math.PI) / 180)
-                );
-            }
-        }
-
         var p = 0.34;
 
         // Draw seconds arc
@@ -86,6 +60,48 @@ class WatchFace extends WatchUi.WatchFace {
             dc.setPenWidth(intMin1(m * 0.08));
             arcOrCutout(dc, w / 2, h / 2, m * (p - 0.04), hourProgress, 5);
             p -= 0.1;
+        }
+
+        var hr24 =
+            l == Data.LAYOUT_24HR ||
+            l == Data.LAYOUT_24HRMIN ||
+            l == Data.LAYOUT_24HRMINSEC;
+        var hr24_ang = hr24 ? 15 : 30;
+
+        // Arc segments
+        if (Data.Settings.segmentedArcs) {
+            dc.setColor(Data.Settings.background, Graphics.COLOR_TRANSPARENT);
+            for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
+                dc.setPenWidth(i % 3 == 0 ? 3 : 1);
+                dc.drawLine(
+                    w / 2,
+                    h / 2,
+                    w / 2 + m * 0.4 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                    h / 2 - m * 0.4 * Math.cos((i * hr24_ang * Math.PI) / 180)
+                );
+            }
+            dc.setColor(Data.Settings.foreground, Data.Settings.background);
+        }
+
+        // Indices
+        dc.setPenWidth(2);
+        for (var i = 1; i <= (hr24 ? 24 : 12); i++) {
+            if (Data.Settings.numericHourMarks) {
+                dc.drawText(
+                    w / 2 + m * 0.43 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                    h / 2 - m * 0.43 * Math.cos((i * hr24_ang * Math.PI) / 180),
+                    Graphics.FONT_TINY,
+                    i.toString(),
+                    Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
+                );
+            } else {
+                dc.drawLine(
+                    w / 2 + m * 0.4 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                    h / 2 - m * 0.4 * Math.cos((i * hr24_ang * Math.PI) / 180),
+                    w / 2 + m * 0.45 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                    h / 2 - m * 0.45 * Math.cos((i * hr24_ang * Math.PI) / 180)
+                );
+            }
         }
 
         // Draw date

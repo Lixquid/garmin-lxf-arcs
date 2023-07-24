@@ -39,6 +39,10 @@ module SettingsMenu {
                     Data.Settings.cutoutMode = !Data.Settings.cutoutMode;
                     Data.Settings.save();
                     break;
+                case :segmentedArcs:
+                    Data.Settings.segmentedArcs = !Data.Settings.segmentedArcs;
+                    Data.Settings.save();
+                    break;
             }
         }
 
@@ -127,6 +131,15 @@ module SettingsMenu {
                     null,
                     :cutoutMode,
                     Data.Settings.cutoutMode,
+                    null
+                )
+            );
+            menu.addItem(
+                new WatchUi.ToggleMenuItem(
+                    Data.Strings.Setting_SegmentedArcs,
+                    null,
+                    :segmentedArcs,
+                    Data.Settings.segmentedArcs,
                     null
                 )
             );

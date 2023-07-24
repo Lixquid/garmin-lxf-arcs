@@ -21,6 +21,7 @@ module Data {
         var Setting_ShowBattery = "Show Battery";
         var Setting_NumericHourMarks = "Numeric Hour Marks";
         var Setting_CutoutMode = "Cutout Mode";
+        var Setting_SegmentedArcs = "Segmented Arcs";
 
         var Setting_Layout_12HrMinSec = "12 Hour, Minutes, Seconds";
         var Setting_Layout_12HrMin = "12 Hour, Minutes";
@@ -72,6 +73,9 @@ module Data {
             );
             Setting_CutoutMode = Application.loadResource(
                 $.Rez.Strings.Setting_CutoutMode
+            );
+            Setting_SegmentedArcs = Application.loadResource(
+                $.Rez.Strings.Setting_SegmentedArcs
             );
 
             Setting_Layout_12HrMinSec = Application.loadResource(
@@ -135,6 +139,7 @@ module Data {
         var showBattery = false;
         var numericHourMarks = false;
         var cutoutMode = false;
+        var segmentedArcs = false;
 
         function load() {
             background = Properties.getValue("Setting_Background");
@@ -144,6 +149,7 @@ module Data {
             showBattery = Properties.getValue("Setting_ShowBattery");
             numericHourMarks = Properties.getValue("Setting_NumericHourMarks");
             cutoutMode = Properties.getValue("Setting_CutoutMode");
+            segmentedArcs = Properties.getValue("Setting_SegmentedArcs");
         }
 
         function save() {
@@ -154,6 +160,7 @@ module Data {
             Properties.setValue("Setting_ShowBattery", showBattery);
             Properties.setValue("Setting_NumericHourMarks", numericHourMarks);
             Properties.setValue("Setting_CutoutMode", cutoutMode);
+            Properties.setValue("Setting_SegmentedArcs", segmentedArcs);
         }
     }
 }
