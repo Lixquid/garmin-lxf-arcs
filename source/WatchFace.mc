@@ -19,57 +19,84 @@ class WatchFace extends WatchUi.WatchFace {
         var now = Time.now();
         var timeInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
         var dayProgress = now.subtract(Time.today()).value() / 86400d;
+        var hr24 =
+            l == Data.LAYOUT_24HR ||
+            l == Data.LAYOUT_24HRMIN ||
+            l == Data.LAYOUT_24HRMINSEC;
         dc.setColor(Data.Settings.foreground, Data.Settings.background);
         if (dc has :setAntiAlias) {
             dc.setAntiAlias(true);
         }
         dc.clear();
 
-        var p = 0.34;
+        var arcs =
+            l == Data.LAYOUT_24HRMINSEC || l == Data.LAYOUT_12HRMINSEC
+                ? 3
+                : l == Data.LAYOUT_24HRMIN || l == Data.LAYOUT_12HRMIN
+                ? 2
+                : 1;
+        var hr = 0.0;
+        var hw = 0.08;
+        var mr = 0.0;
+        var mw = 0.04;
+        var sr = 0.0;
+        var sw = 0.02;
 
-        if (Data.Settings.hourMarks == Data.HOURMARK_NONE) {
-            // If no hour marks, use more space for arcs
-            p = 0.48;
+        if (Data.Settings.dynamicArcWidths) {
+            // Space capacity
+            var c = arcs == 3 ? 0.18 : arcs == 2 ? 0.14 : 0.08;
+            // Actual computed space
+            var s = Data.Settings.hourMarks == Data.HOURMARK_NONE ? 0.32 : 0.18;
+
+            hr = (0.04 / c) * s + 0.16;
+            hw = (0.08 / c) * s;
+            mr = (0.12 / c) * s + 0.16;
+            mw = (0.04 / c) * s;
+            sr = (0.17 / c) * s + 0.16;
+            sw = (0.02 / c) * s;
+        } else {
+            var p = Data.Settings.hourMarks == Data.HOURMARK_NONE ? 0.48 : 0.34;
+
+            // Draw seconds arc
+            if (arcs == 3) {
+                sr = p - 0.01;
+                p -= 0.04;
+            }
+
+            // Draw minutes arc
+            if (arcs > 1) {
+                mr = p - 0.02;
+                p -= 0.06;
+            }
+
+            // Draw hour arc
+            hr = p - 0.04;
         }
 
         // Draw seconds arc
-        if (l == Data.LAYOUT_24HRMINSEC || l == Data.LAYOUT_12HRMINSEC) {
+        if (arcs == 3) {
             var secondProgress = timeInfo.sec / 60d;
-            dc.setPenWidth(intMin1(m * 0.02));
-            arcOrCutout(dc, w / 2, h / 2, m * (p - 0.01), secondProgress, 2);
-            p -= 0.04;
+            dc.setPenWidth(intMin1(m * sw));
+            arcOrCutout(dc, w / 2, h / 2, m * sr, secondProgress, 2);
         }
 
         // Draw minutes arc
-        if (
-            l == Data.LAYOUT_24HRMIN ||
-            l == Data.LAYOUT_24HRMINSEC ||
-            l == Data.LAYOUT_12HRMIN ||
-            l == Data.LAYOUT_12HRMINSEC
-        ) {
+        if (arcs > 1) {
             var minuteProgress = rem(dayProgress * 24d, 1d);
-            dc.setPenWidth(intMin1(m * 0.04));
-            arcOrCutout(dc, w / 2, h / 2, m * (p - 0.02), minuteProgress, 3);
-            p -= 0.06;
+            dc.setPenWidth(intMin1(m * mw));
+            arcOrCutout(dc, w / 2, h / 2, m * mr, minuteProgress, 3);
         }
 
         // Draw hour arc
-        if (l == Data.LAYOUT_12HRMIN || l == Data.LAYOUT_12HRMINSEC) {
-            var hourProgress = rem(dayProgress * 2d, 1d);
-            dc.setPenWidth(intMin1(m * 0.08));
-            arcOrCutout(dc, w / 2, h / 2, m * (p - 0.04), hourProgress, 5);
-            p -= 0.1;
-        } else {
+        dc.setPenWidth(intMin1(m * hw));
+        if (hr24) {
             var hourProgress = rem(dayProgress, 1d);
-            dc.setPenWidth(intMin1(m * 0.08));
-            arcOrCutout(dc, w / 2, h / 2, m * (p - 0.04), hourProgress, 5);
-            p -= 0.1;
+            arcOrCutout(dc, w / 2, h / 2, m * hr, hourProgress, 5);
+        } else {
+            var hourProgress = rem(dayProgress * 2d, 1d);
+            arcOrCutout(dc, w / 2, h / 2, m * hr, hourProgress, 5);
         }
 
-        var hr24 =
-            l == Data.LAYOUT_24HR ||
-            l == Data.LAYOUT_24HRMIN ||
-            l == Data.LAYOUT_24HRMINSEC;
         var hr24_ang = hr24 ? 15 : 30;
 
         // Arc segments

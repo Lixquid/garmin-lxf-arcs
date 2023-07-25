@@ -38,6 +38,9 @@
             <listEntry value="4">@Strings.Layout_24Hr</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.Setting_DynamicArcWidths" title="@Strings.Setting_DynamicArcWidths">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.Setting_HourMarks" title="@Strings.Setting_HourMarks">
         <settingConfig type="list">
             <listEntry value="0">@Strings.HourMark_None</listEntry>

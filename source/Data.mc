@@ -25,6 +25,7 @@ module Data {
         var Setting_Background as String = "";
         var Setting_Foreground as String = "";
         var Setting_Layout as String = "";
+        var Setting_DynamicArcWidths as String = "";
         var Setting_HourMarks as String = "";
         var Setting_ShowDate as String = "";
         var Setting_ShowBattery as String = "";
@@ -77,6 +78,9 @@ module Data {
             );
             Setting_Layout = Application.loadResource(
                 $.Rez.Strings.Setting_Layout
+            );
+            Setting_DynamicArcWidths = Application.loadResource(
+                $.Rez.Strings.Setting_DynamicArcWidths
             );
             Setting_HourMarks = Application.loadResource(
                 $.Rez.Strings.Setting_HourMarks
@@ -170,6 +174,7 @@ module Data {
         var background as Number = 0;
         var foreground as Number = 0;
         var layout as LAYOUT = LAYOUT_12HRMINSEC;
+        var dynamicArcWidths as Boolean = false;
         var hourMarks as HOURMARK = HOURMARK_NONE;
         var showDate as Boolean = false;
         var showBattery as Boolean = false;
@@ -180,6 +185,7 @@ module Data {
             background = Properties.getValue("Setting_Background");
             foreground = Properties.getValue("Setting_Foreground");
             layout = Properties.getValue("Setting_Layout") as LAYOUT;
+            dynamicArcWidths = Properties.getValue("Setting_DynamicArcWidths");
             hourMarks = Properties.getValue("Setting_HourMarks") as HOURMARK;
             showDate = Properties.getValue("Setting_ShowDate");
             showBattery = Properties.getValue("Setting_ShowBattery");
@@ -191,6 +197,7 @@ module Data {
             Properties.setValue("Setting_Background", background);
             Properties.setValue("Setting_Foreground", foreground);
             Properties.setValue("Setting_Layout", layout);
+            Properties.setValue("Setting_DynamicArcWidths", dynamicArcWidths);
             Properties.setValue("Setting_HourMarks", hourMarks);
             Properties.setValue("Setting_ShowDate", showDate);
             Properties.setValue("Setting_ShowBattery", showBattery);

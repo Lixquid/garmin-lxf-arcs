@@ -22,6 +22,10 @@ module SettingsMenu {
                 case :layout:
                     LayoutMenu.show(self);
                     break;
+                case :dynamicArcWidths:
+                    Data.Settings.dynamicArcWidths = !Data.Settings.dynamicArcWidths;
+                    Data.Settings.save();
+                    break;
                 case :hourMarks:
                     HourMarksMenu.show(self);
                     break;
@@ -92,6 +96,15 @@ module SettingsMenu {
                     Data.Strings.Setting_Layout,
                     Data.Strings.Map.layouts[Data.Settings.layout],
                     :layout,
+                    null
+                )
+            );
+            menu.addItem(
+                new WatchUi.ToggleMenuItem(
+                    Data.Strings.Setting_DynamicArcWidths,
+                    null,
+                    :dynamicArcWidths,
+                    Data.Settings.dynamicArcWidths,
                     null
                 )
             );

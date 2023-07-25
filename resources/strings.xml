@@ -2,15 +2,20 @@
     <string id="AppName">LxF Arcs</string>
     <string id="AppVersion">0.1.0</string>
 
+    <string id="SettingsTitle">Settings</string>
+
+    <!-- Setting Names -->
     <string id="Setting_Background">Background Color</string>
     <string id="Setting_Foreground">Foreground Color</string>
     <string id="Setting_Layout">Layout</string>
+    <string id="Setting_DynamicArcWidths">Dynamic Arc Widths</string>
     <string id="Setting_HourMarks">Hour Marks Style</string>
     <string id="Setting_ShowDate">Show Date</string>
     <string id="Setting_ShowBattery">Show Battery</string>
     <string id="Setting_CutoutMode">Cutout Mode</string>
     <string id="Setting_SegmentedArcs">Segmented Arcs</string>
 
+    <!-- Color Enum Values -->
     <string id="Color_White">White</string>
     <string id="Color_Gray">Gray</string>
     <string id="Color_DarkGray">Dark Gray</string>
@@ -23,17 +28,17 @@
     <string id="Color_Purple">Purple</string>
     <string id="Color_Pink">Pink</string>
 
+    <!-- Layout Enum Values -->
     <string id="Layout_12HrMinSec">12 Hour, Minutes, Seconds</string>
     <string id="Layout_12HrMin">12 Hour, Minutes</string>
     <string id="Layout_24HrMinSec">24 Hour, Minutes, Seconds</string>
     <string id="Layout_24HrMin">24 Hour, Minutes</string>
     <string id="Layout_24Hr">24 Hour</string>
 
+    <!-- Hour Mark Enum Values -->
     <string id="HourMark_None">None</string>
     <string id="HourMark_Stick">Sticks</string>
     <string id="HourMark_Dot">Dots</string>
     <string id="HourMark_SmallNumbers">Small Numbers</string>
     <string id="HourMark_LargeNumbers">Large Numbers</string>
-
-    <string id="SettingsTitle">Settings</string>
 </strings>
