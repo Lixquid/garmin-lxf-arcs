@@ -19,7 +19,6 @@ class WatchFace extends WatchUi.WatchFace {
         var now = Time.now();
         var timeInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
         var dayProgress = now.subtract(Time.today()).value() / 86400d;
-        var sys = System.getSystemStats();
         dc.setColor(Data.Settings.foreground, Data.Settings.background);
         if (dc has :setAntiAlias) {
             dc.setAntiAlias(true);
@@ -141,6 +140,17 @@ class WatchFace extends WatchUi.WatchFace {
                 break;
         }
 
+        drawCenter(dc, w, h, m, timeInfo);
+    }
+
+    (:watchArmsNo)
+    private function drawCenter(
+        dc as Dc,
+        w as Number,
+        h as Number,
+        m as Number,
+        timeInfo as Time.Gregorian.Info
+    ) {
         // Draw date
         if (Data.Settings.showDate) {
             dc.drawText(
@@ -154,11 +164,55 @@ class WatchFace extends WatchUi.WatchFace {
 
         // Draw battery level
         if (Data.Settings.showBattery) {
+            var sys = System.getSystemStats();
             dc.setPenWidth(1);
             dc.drawArc(w / 2, h / 2, m * 0.1, Graphics.ARC_CLOCKWISE, 0, 180);
             dc.setPenWidth(intMin1(m * 0.02));
             dc.drawArc(
                 w / 2,
+                h / 2,
+                m * 0.1,
+                Graphics.ARC_CLOCKWISE,
+                0,
+                sys.battery * -1.8
+            );
+        }
+    }
+
+    (:watchArmsYes)
+    private function drawCenter(
+        dc as Dc,
+        w as Number,
+        h as Number,
+        m as Number,
+        timeInfo as Time.Gregorian.Info
+    ) {
+        var cx = (w * 5) / 6;
+
+        // Draw background cutout
+        dc.setColor(Data.Settings.background, Graphics.COLOR_TRANSPARENT);
+        dc.fillCircle(cx, h / 2, m * 0.14);
+        dc.setColor(Data.Settings.foreground, Data.Settings.background);
+
+        // Draw date
+        if (Data.Settings.showDate) {
+            dc.drawText(
+                cx,
+                h / 2,
+                Graphics.FONT_SMALL,
+                timeInfo.day.toString(),
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
+            );
+        }
+
+        // Draw battery level
+        if (Data.Settings.showBattery) {
+            var sys = System.getSystemStats();
+            dc.setPenWidth(1);
+            dc.drawArc(cx, h / 2, m * 0.1, Graphics.ARC_CLOCKWISE, 0, 180);
+            dc.setPenWidth(intMin1(m * 0.02));
+            dc.drawArc(
+                cx,
                 h / 2,
                 m * 0.1,
                 Graphics.ARC_CLOCKWISE,
