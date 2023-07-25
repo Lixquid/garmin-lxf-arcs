@@ -27,6 +27,11 @@ class WatchFace extends WatchUi.WatchFace {
 
         var p = 0.34;
 
+        if (Data.Settings.hourMarks == Data.HOURMARK_NONE) {
+            // If no hour marks, use more space for arcs
+            p = 0.48;
+        }
+
         // Draw seconds arc
         if (l == Data.LAYOUT_24HRMINSEC || l == Data.LAYOUT_12HRMINSEC) {
             var secondProgress = timeInfo.sec / 60d;
@@ -75,8 +80,8 @@ class WatchFace extends WatchUi.WatchFace {
                 dc.drawLine(
                     w / 2,
                     h / 2,
-                    w / 2 + m * 0.4 * Math.sin((i * hr24_ang * Math.PI) / 180),
-                    h / 2 - m * 0.4 * Math.cos((i * hr24_ang * Math.PI) / 180)
+                    w / 2 + m * 0.5 * Math.sin((i * hr24_ang * Math.PI) / 180),
+                    h / 2 - m * 0.5 * Math.cos((i * hr24_ang * Math.PI) / 180)
                 );
             }
         }
