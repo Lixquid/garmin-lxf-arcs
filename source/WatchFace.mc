@@ -219,6 +219,9 @@ class WatchFace extends WatchUi.WatchFace {
         m as Number,
         timeInfo as Time.Gregorian.Info
     ) {
+        if (!Data.Settings.showDate && !Data.Settings.showBattery) {
+            return;
+        }
         var cx = (w * 5) / 6;
 
         // Draw background cutout
