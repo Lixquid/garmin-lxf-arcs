@@ -1,3 +1,8 @@
+# Version 0.2.1
+
+- Fix date / battery complication background appearing even if neither
+  complication is enabled
+
 # Version 0.2.0
 
 - Add dynamic arc positioning
